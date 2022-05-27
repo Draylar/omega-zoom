@@ -1,0 +1,28 @@
+{
+  "schemaVersion": 1,
+  "id": "omegazoom",
+  "version": "${version}",
+  "name": "Omega Zoom",
+  "description": "The last zoom mod you will ever use.",
+  "authors": [
+    "Draylar"
+  ],
+  "contact": {
+    "homepage": "https://www.curseforge.com/minecraft/mc-mods/omega-zoom"
+  },
+  "license": "CC0 1.0 Universal",
+  "icon": "assets/omegazoom/icon.png",
+  "environment": "*",
+  "entrypoints": {
+    "client": [
+      "dev.draylar.oz.OmegaZoom"
+    ]
+  },
+  "mixins": [
+    "omega-zoom.mixins.json"
+  ],
+  "depends": {
+    "fabricloader": "*",
+    "minecraft": ">=1.18"
+  }
+}
