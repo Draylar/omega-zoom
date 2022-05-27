@@ -10,10 +10,13 @@ import net.fabricmc.fabric.api.client.event.lifecycle.v1.ClientTickEvents;
 import net.fabricmc.fabric.api.client.keybinding.v1.KeyBindingHelper;
 import net.minecraft.client.option.KeyBinding;
 import org.lwjgl.glfw.GLFW;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 @Environment(EnvType.CLIENT)
 public class OmegaZoom implements ClientModInitializer {
 
+    public static final Logger LOGGER = LoggerFactory.getLogger("Omega Zoom");
     public static final OmegaZoomConfig CONFIG = OmegaConfig.register(OmegaZoomConfig.class);
 
     public static final KeyBinding ZOOM = KeyBindingHelper.registerKeyBinding(new KeyBinding(
@@ -60,7 +63,7 @@ public class OmegaZoom implements ClientModInitializer {
                 appliedZoom = Math.max(CONFIG.maxZoomValue, (double) Math.round((appliedZoom - CONFIG.incrementPerZoomScale) * 100d) / 100d);
                 updateConfigurationZoom();
                 zoomCount++;
-            } else if (ZOOM_SCALE_OUT.wasPressed()) {
+            } else if(ZOOM_SCALE_OUT.wasPressed()) {
                 appliedZoom = Math.min(CONFIG.minZoomValue, (double) Math.round((appliedZoom + CONFIG.incrementPerZoomScale) * 100d) / 100d);
                 updateConfigurationZoom();
                 zoomCount--;
