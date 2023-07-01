@@ -2,7 +2,6 @@ package dev.draylar.oz;
 
 import dev.draylar.oz.config.OmegaZoomConfig;
 import draylar.omegaconfig.OmegaConfig;
-import draylar.omegaconfiggui.OmegaConfigGui;
 import net.fabricmc.api.ClientModInitializer;
 import net.fabricmc.api.EnvType;
 import net.fabricmc.api.Environment;
@@ -69,8 +68,6 @@ public class OmegaZoom implements ClientModInitializer {
                 zoomCount--;
             }
         });
-
-        OmegaConfigGui.registerConfigScreen(CONFIG);
     }
 
     public static double getSmoothingAmount() {

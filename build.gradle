@@ -1,5 +1,5 @@
 plugins {
-    id 'fabric-loom' version '0.12-SNAPSHOT'
+    id 'fabric-loom' version '1.2-SNAPSHOT'
     id 'maven-publish'
 }
 
@@ -7,16 +7,8 @@ version = project.mod_version + "-" + project.minecraft_version
 group = project.maven_group
 
 repositories {
-    maven { url 'https://jitpack.io' }
-
     maven {
-        name = "Shedaniel's Maven"
-        url = "https://maven.shedaniel.me/"
-    }
-
-    maven {
-        name = "TerraformersMC"
-        url = "https://maven.terraformersmc.com/releases/"
+        url "https://maven.draylar.dev/releases"
     }
 }
 
@@ -26,11 +18,8 @@ dependencies {
     modImplementation "net.fabricmc:fabric-loader:${project.loader_version}"
     modImplementation "net.fabricmc.fabric-api:fabric-api:${project.fabric_version}"
 
-    modImplementation include("com.github.Draylar.omega-config:omega-config-base:${project.omega_config_version}")
-    modImplementation include("com.github.Draylar.omega-config:omega-config-gui:${project.omega_config_version}") {
-        exclude group: "com.terraformersmc"
-    }
-//    modRuntimeOnly ("com.terraformersmc:modmenu:${project.modmenu_version}")
+    // Dependencies
+    modImplementation include("dev.draylar.omega-config:omega-config-base:${project.omega_config_version}")
 }
 
 processResources {
