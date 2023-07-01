@@ -36,7 +36,7 @@ public abstract class MouseMixin {
     @ModifyVariable(method = "updateMouse", at = @At(value = "INVOKE", target = "Lnet/minecraft/client/MinecraftClient;getTutorialManager()Lnet/minecraft/client/tutorial/TutorialManager;"), index = 5)
     private double updateMouseXSpeed(double value) {
         if(OmegaZoom.zoomEnabled && OmegaZoom.CONFIG.smoothMouse) {
-            double baseSens = client.options.mouseSensitivity * (double)0.6f + (double)0.2f;
+            double baseSens = client.options.getMouseSensitivity().getValue() * (double) 0.6f + (double)0.2f;
             double sensCubed = baseSens * baseSens * baseSens;
             return cacheCursorDeltaX * sensCubed * OmegaZoom.getSmoothingAmount();
         }
@@ -47,7 +47,7 @@ public abstract class MouseMixin {
     @ModifyVariable(method = "updateMouse", at = @At(value = "INVOKE", target = "Lnet/minecraft/client/MinecraftClient;getTutorialManager()Lnet/minecraft/client/tutorial/TutorialManager;"), index = 7)
     private double updateMouseYSpeed(double value) {
         if(OmegaZoom.zoomEnabled && OmegaZoom.CONFIG.smoothMouse) {
-            double baseSens = client.options.mouseSensitivity * (double)0.6f + (double)0.2f;
+            double baseSens = client.options.getMouseSensitivity().getValue() * (double)0.6f + (double)0.2f;
             double sensCubed = baseSens * baseSens * baseSens;
             return cacheCursorDeltaY * sensCubed * OmegaZoom.getSmoothingAmount();
         }
